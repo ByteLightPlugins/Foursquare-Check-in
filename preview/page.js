@@ -6,16 +6,14 @@ $(function() {
     BL.authorizeFoursquare();
   })
   
-  if (BL.foursquareAuthenticated()) {
-    var text = 'You just checked in with foursquare at: ' + data.venueName;
-    alert(text)
-    
+  if (!BL.foursquareAuthenticated(function() {
     $('#checkin').show()
     BL.foursquareCheckin(data.venueId, data.oncePerSession, function() {
+      var text = 'You just checked in with foursquare at: ' + data.venueName;
       $('#checkin').text(text);
+      alert(text);
     })
-  }
-  else {
+  })) {
     $('button').show()
   }
   BL.previewReady(); // this is what tells the preview page to display this component - must be called
