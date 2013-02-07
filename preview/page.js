@@ -7,9 +7,12 @@ $(function() {
   })
   
   if (BL.foursquareAuthenticated()) {
+    var text = 'You just checked in with foursquare at: ' + data.venueName;
+    alert(text)
+    
     $('#checkin').show()
     BL.foursquareCheckin(data.venueId, data.oncePerSession, function() {
-      $('#checkin').text('You just checked in with foursquare at: ' + data.venueName);
+      $('#checkin').text(text);
     })
   }
   else {
