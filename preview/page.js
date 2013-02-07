@@ -7,14 +7,16 @@ $(function() {
   })
   
   if (!BL.foursquareAuthenticated(function() {
-    $('#checkin').show()
+    $('button').hide();
+    BL.previewReady(); 
     BL.foursquareCheckin(data.venueId, data.oncePerSession, function() {
       var text = 'You just checked in with foursquare at: ' + data.venueName;
-      $('#checkin').text(text);
+      $('#checkin').show()
+      BL.previewReady(); 
       alert(text);
     })
   })) {
-    $('button').show()
+    $('button').show();
   }
   BL.previewReady(); // this is what tells the preview page to display this component - must be called
 })
