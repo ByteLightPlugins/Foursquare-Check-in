@@ -1,3 +1,13 @@
 #checkin {
   font-size: 20px;
 }
+
+#logo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bl-preview-container {
+  height: 110px !important; 
+}

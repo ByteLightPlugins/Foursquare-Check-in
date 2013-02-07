@@ -17,6 +17,7 @@ $(function() {
     })
   })) {
     $('button').show();
+    BL.previewReady();
   }
   BL.previewReady(); // this is what tells the preview page to display this component - must be called
 })
